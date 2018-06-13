@@ -3,6 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {msg : ''};
+  }
+  clickFunc() {
+    console.log('click Event');
+  }
+
   render() {
     return (
       <div className="App">
@@ -13,6 +22,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <button onClick ={this.clickFunc.bind(this)}>SHOW KEYS</button>
       </div>
     );
   }
