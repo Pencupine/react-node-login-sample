@@ -6,10 +6,21 @@ class App extends Component {
   constructor(props){
     super(props);
 
-    this.state = {msg : ''};
+    this.state = {};
   }
   clickFunc() {
     console.log('click Event');
+
+    fetch('/api/keys')
+      .then(res => res.json())
+      .then(data => {
+        this.setState(data);
+        console.log(data);
+        console.log(this.state.apiKey)
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
 
   render() {
@@ -23,6 +34,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <button onClick ={this.clickFunc.bind(this)}>SHOW KEYS</button>
+        <p>Welcome {this.state.apiKey}</p>
       </div>
     );
   }
