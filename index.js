@@ -4,7 +4,7 @@ const idKeys = require('./reqkeys/keys');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, '/client/build')));
 
 app.get('/api/keys', (req, res) => {
 
